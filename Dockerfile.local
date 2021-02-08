@@ -1,7 +1,5 @@
 FROM node
 
-RUN npm i -g yarn 
-
 WORKDIR /opt/server
 
 COPY ./ ./
