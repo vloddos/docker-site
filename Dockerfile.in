@@ -1,14 +1,17 @@
 FROM alpine
 
+ENV SITE_DIR=/home/sites
+
+WORKDIR $SITE_DIR
+
 RUN apk add git \
 	&& apk add yarn \
-	&& git clone https://github.com/drucoder/docker-site.git \
+	&& git clone https://github.com/vloddos/docker-site.git \
 	&& cd docker-site \
 	&& yarn 
 
-WORKDIR ./docker-site
-
-CMD yarn start
+WORKDIR $SITE_DIR/docker-site
 
 EXPOSE 3000
 
+CMD yarn start
